@@ -72,6 +72,9 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         return n;
     }
 
+    public void insert(Key key) {
+        insert(n, key);
+    }
     public void insert(int i, Key key) {
         validateIndex(i);
         if (contains(i)) throw new IllegalArgumentException("index is already in the priority queue");
