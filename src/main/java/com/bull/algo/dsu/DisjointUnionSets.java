@@ -1,48 +1,46 @@
 package com.bull.algo.dsu;
 
-import java.io.*;
 import java.util.*;
 
-class DisjointUnionSets {
+class DisjointUnionSets<T> {
 
-    private final int[] rank;
-    private final int[] parent;
-    private final int n;
+    private final Map<T, Integer> rank;
+    private final Map<T, T> parent;
 
-    public DisjointUnionSets(int n) {
-        this.rank = new int[n];
-        this.parent = new int[n];
-        this.n = n;
-        makeSet();
+    public DisjointUnionSets() {
+        this.rank = new HashMap<>();
+        this.parent = new HashMap<>();
     }
 
-    void makeSet() {
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-        }
+    void add(T item) {
+        rank.put(item, 0);
+        parent.put(item, item);
     }
 
-    public int find(int x) {
-        if (parent[x] != x) {
-            parent[x] = find(parent[x]);
+    public T find(T item) {
+        if (parent.get(item) != item) {
+            parent.put(item, find(parent.get(item)));
         }
 
-        return parent[x];
+        return parent.get(item);
     }
 
-    void union(int x, int y) {
-        int xRoot = find(x), yRoot = find(y);
+    void union(T x, T y) {
+        T xRoot = find(x), yRoot = find(y);
 
         if (xRoot == yRoot)
             return;
 
-        if (rank[xRoot] < rank[yRoot])
-            parent[xRoot] = yRoot;
-        else if (rank[yRoot] < rank[xRoot])
-            parent[yRoot] = xRoot;
+        int xRank = rank.get(xRoot);
+        int yRank = rank.get(yRoot);
+
+        if (xRank < yRank)
+            parent.put(xRoot, yRoot);
+        else if (yRank < xRank)
+            parent.put(yRoot, xRoot);
         else {
-            parent[yRoot] = xRoot;
-            rank[xRoot] = rank[xRoot] + 1;
+            parent.put(yRoot, xRoot);
+            rank.put(xRoot, rank.get(xRoot) + 1);
         }
     }
 }
