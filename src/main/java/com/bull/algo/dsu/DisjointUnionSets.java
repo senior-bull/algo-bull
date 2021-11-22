@@ -4,12 +4,14 @@ import java.io.*;
 import java.util.*;
 
 class DisjointUnionSets {
-    int[] rank, parent;
-    int n;
+
+    private final int[] rank;
+    private final int[] parent;
+    private final int n;
 
     public DisjointUnionSets(int n) {
-        rank = new int[n];
-        parent = new int[n];
+        this.rank = new int[n];
+        this.parent = new int[n];
         this.n = n;
         makeSet();
     }
