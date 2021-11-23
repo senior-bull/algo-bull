@@ -4,16 +4,16 @@ import java.util.*;
 
 class DisjointUnionSets<T> implements Iterable<DisjointUnionSets<T>.DsuSet> {
 
-    private final Map<T, Integer> rank;
+    private final Map<T, Integer> treeSize;
     private final Map<T, T> parent;
 
     public DisjointUnionSets() {
-        this.rank = new HashMap<>();
+        this.treeSize = new HashMap<>();
         this.parent = new HashMap<>();
     }
 
     void add(T item) {
-        rank.put(item, 0);
+        treeSize.put(item, 0);
         parent.put(item, item);
     }
 
@@ -31,16 +31,16 @@ class DisjointUnionSets<T> implements Iterable<DisjointUnionSets<T>.DsuSet> {
         if (xRoot == yRoot)
             return;
 
-        int xRank = rank.get(xRoot);
-        int yRank = rank.get(yRoot);
+        int xCount = treeSize.get(xRoot);
+        int yCount = treeSize.get(yRoot);
 
-        if (xRank < yRank)
+        if (xCount < yCount)
             parent.put(xRoot, yRoot);
-        else if (yRank < xRank)
+        else if (yCount < xCount)
             parent.put(yRoot, xRoot);
         else {
             parent.put(yRoot, xRoot);
-            rank.put(xRoot, rank.get(xRoot) + 1);
+            treeSize.put(xRoot, treeSize.get(xRoot) + 1);
         }
     }
 
