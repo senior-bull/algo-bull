@@ -19,18 +19,26 @@ class DisjointUnionSetsTest {
         assertSame("Y", dsu.find("Y"));
         assertSame("Z", dsu.find("Z"));
 
+        assertEquals(3, dsu.getSets().size());
+
         dsu.union("Y", "Z");
 
         assertSame("X", dsu.find("X"));
         assertSame(dsu.find("Z"), dsu.find("Y"));
 
+        assertEquals(2, dsu.getSets().size());
+
         dsu.add("A");
 
         assertSame("A", dsu.find("A"));
+
+        assertEquals(3, dsu.getSets().size());
 
         dsu.union("A", "Y");
 
         assertSame(dsu.find("Z"), dsu.find("Y"));
         assertSame(dsu.find("A"), dsu.find("Z"));
+
+        assertEquals(2, dsu.getSets().size());
     }
 }
