@@ -1,6 +1,7 @@
 package com.bull.algo.dsu;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 class DisjointUnionSets<T> implements Iterable<DisjointUnionSets<T>.DsuSet> {
 
@@ -47,14 +48,14 @@ class DisjointUnionSets<T> implements Iterable<DisjointUnionSets<T>.DsuSet> {
     public List<DsuSet> getSets() {
         Map<T, List<T>> sets = new HashMap<>();
 
-        for (var item : parent.keySet()) {
+        for (T item : parent.keySet()) {
             sets.computeIfAbsent(find(item), i -> new ArrayList<>()).add(item);
         }
 
         return sets.entrySet()
                 .stream()
                 .map(kv -> new DsuSet(kv.getKey(), kv.getValue()))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     @Override

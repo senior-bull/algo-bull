@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +25,7 @@ class InsertionSorterTest {
 
             new InsertionSorter<Integer>().sort(listToTest);
 
-            List<Integer> sorted = listToTest.stream().sorted().toList();
+            List<Integer> sorted = listToTest.stream().sorted().collect(Collectors.toList());
 
             Assertions.assertEquals(sorted, listToTest);
         }

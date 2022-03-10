@@ -1,5 +1,6 @@
 package com.bull.algo.graph.iter;
 
+import com.bull.algo.graph.Edge;
 import com.bull.algo.graph.Graph;
 import com.bull.algo.graph.Vertex;
 
@@ -15,11 +16,11 @@ public class BFS {
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            var vertex = queue.poll();
+            Vertex<T> vertex = queue.poll();
             result.add(vertex);
             visited.put(vertex, true);
 
-            for (var edge : vertex) {
+            for (Edge<T> edge : vertex) {
 
                 if (!visited.getOrDefault(edge.to(), false)) {
                     queue.add(edge.to());

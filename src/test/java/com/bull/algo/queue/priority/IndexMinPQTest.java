@@ -10,7 +10,7 @@ class IndexMinPQTest {
     @Test
     public void testSimple() {
 
-        var q = new IndexMinPQ<Integer>(256);
+        IndexMinPQ<Integer> q = new IndexMinPQ<>(256);
         q.insert(6);
         q.insert(1);
         q.insert(10);

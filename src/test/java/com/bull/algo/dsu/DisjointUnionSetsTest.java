@@ -9,7 +9,7 @@ class DisjointUnionSetsTest {
 
     @Test
     public void test() {
-        var dsu = new DisjointUnionSets<String>();
+        DisjointUnionSets<String> dsu = new DisjointUnionSets<>();
 
         dsu.add("X");
         dsu.add("Y");
