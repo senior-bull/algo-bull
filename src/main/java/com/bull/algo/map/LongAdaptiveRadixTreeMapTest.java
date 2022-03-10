@@ -1,4 +1,4 @@
-package com.bull.algo.art;
+package com.bull.algo.map;
 
 import exchange.core2.collections.art.LongAdaptiveRadixTreeMap;
 import org.junit.jupiter.api.Assertions;
