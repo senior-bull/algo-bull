@@ -1,4 +1,4 @@
-package com.bull.algo.map.trie;
+package com.bull.algo.map.hamt;
 
 import java.util.Arrays;
 

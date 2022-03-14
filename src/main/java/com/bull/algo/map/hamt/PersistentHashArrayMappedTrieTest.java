@@ -1,6 +1,6 @@
-package com.bull.algo.map.trie;
+package com.bull.algo.map.hamt;
 
-import com.bull.algo.map.trie.PersistentHashArrayMappedTrie.Node;
+import com.bull.algo.map.hamt.PersistentHashArrayMappedTrie.Node;
 import org.junit.jupiter.api.Assertions;
 
 public class PersistentHashArrayMappedTrieTest {
