@@ -29,6 +29,7 @@ dependencies {
     compile group: 'io.grpc', name: 'grpc-all', version: '1.45.0'
     compile group: 'exchange.core2', name: 'collections', version: '0.5.1'
     compile group: 'net.openhft', name: 'smoothie-map', version: '1.3'
+    compile group: 'org.eclipse.collections', name: 'eclipse-collections', version: '11.0.0'
     compile "org.openjdk.jcstress:jcstress-core:${jcstressVersion}"
 
     compile 'org.junit.jupiter:junit-jupiter-api:5.8.1'
