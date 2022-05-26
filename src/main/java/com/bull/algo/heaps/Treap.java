@@ -1,4 +1,4 @@
-package com.bull.algo.heap;
+package com.bull.algo.heaps;
 
 import java.nio.BufferUnderflowException;
 import java.util.Random;
